@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // AboutHero.tsx — the headshot + intro block at the top of /about.
-// Author: Bill Chen
+// Author: Jeffin Francis
 // -----------------------------------------------------------------------------
 import headshotImage from '../../assets/headshot.svg';
 import ResumeDownloadButton from '../ResumeDownloadButton';
@@ -12,14 +12,14 @@ export default function AboutHero() {
     <div className="grid gap-8 items-start grid-cols-1 md:grid-cols-[280px_1fr]">
       <img
         src={headshotImage}
-        alt="Portrait of Bill Chen"
+        alt="Portrait of Jeffin Francis"
         width={280}
         height={280}
         className="w-full max-w-[280px] h-auto md:w-[280px] md:h-[280px] object-cover rounded-lg bg-surface-2 border border-border shadow-md"
       />
 
       <div className="grid gap-3">
-        <h2 className="mb-0">Bill Chen</h2>
+        <h2 className="mb-0">Jeffin Francis</h2>
         <p className="text-accent font-medium m-0">Software developer · Web + mobile</p>
 
         <p className="m-0 leading-relaxed">

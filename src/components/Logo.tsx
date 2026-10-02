@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // Logo.tsx — a small, self-contained "brand mark" component.
-// Author: Bill Chen
+// Author: Jeffin Francis
 //
 // SVG can be written directly inside JSX. The tags look like HTML but attribute
 // names are camelCased (e.g. `stroke-width` in HTML → `strokeWidth` in JSX).
@@ -15,7 +15,7 @@ type LogoProps = {
   title?: string;
 };
 
-export default function Logo({ size = 40, title = 'Bill Chen logo' }: LogoProps) {
+export default function Logo({ size = 40, title = 'Jeffin Francis logo' }: LogoProps) {
   return (
     // role="img" + aria-label together tell screen readers to treat the entire
     // SVG as a single labeled image, instead of announcing each shape inside.
@@ -32,15 +32,15 @@ export default function Logo({ size = 40, title = 'Bill Chen logo' }: LogoProps)
       <defs>
         {/* A linear gradient reusable via `fill="url(#logoGradient)"` below. */}
         <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#6ee7b7" />
-          <stop offset="100%" stopColor="#22d3aa" />
+          <stop offset="0%" stopColor="#818cf8" />
+          <stop offset="100%" stopColor="#818cf8" />
         </linearGradient>
       </defs>
 
       {/* Hexagon container. The `points` list is (x,y) corner pairs.
           32,4 → top center · 58,18 → upper right · etc. */}
       <polygon
-        points="32,4 58,18 58,46 32,60 6,46 6,18"
+        points="32,4 58.5,23.3 48.4,54.4 15.6,54.4 5.5,23.3"
         fill="url(#logoGradient)"
         stroke="#0f1226"
         strokeWidth="2"
@@ -59,7 +59,7 @@ export default function Logo({ size = 40, title = 'Bill Chen logo' }: LogoProps)
         fontSize="22"
         fill="#0f1226"
       >
-        BC
+        JF
       </text>
     </svg>
   );

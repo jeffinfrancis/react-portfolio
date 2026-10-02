@@ -20,15 +20,15 @@ export const DEFAULT_TECH_GROUPS: readonly TechGroup[] = [
   },
   {
     label: 'Backend',
-    items: ['Node.js', 'Express', 'PostgreSQL', 'Redis', 'REST', 'GraphQL']
+    items: ['Node.js', 'Express', 'MongoDB','REST', 'GraphQL']
   },
   {
     label: 'Mobile',
-    items: ['React Native', 'Expo', 'SQLite']
+    items: ['React Native', 'SQLite']
   },
   {
     label: 'Tooling',
-    items: ['Git', 'GitHub Actions', 'Docker', 'ESLint', 'Prettier', 'Playwright']
+    items: ['Git', 'GitHub Actions', 'Docker', 'ESLint', 'Prettier']
   }
 ];
 

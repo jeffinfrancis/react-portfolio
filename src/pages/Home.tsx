@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // Home.tsx — the landing page ("/").
-// Author: Bill Chen
+// Author: Jeffin Francis
 //
 // Concepts introduced here:
 //   • useEffect — a hook that runs code AFTER render, useful for reacting to
@@ -40,7 +40,7 @@ export default function Home() {
   // This effect runs once when the component first loads.
   // It starts a timer and then flips `isLoading` to false after 2 seconds.
   // This is a classic beginner example for "do something after render".
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -139,7 +139,7 @@ export default function Home() {
           <p className="uppercase tracking-[0.14em] text-accent font-semibold text-sm mb-2">
             Welcome
           </p>
-          <h1>Hi, I'm Bill Chen. This is my portfolio. Demo for COMP229 class.</h1>
+          <h1>Hi, I'm Jeffin Francis. This is my portfolio.</h1>
           <p className="lead">
             I design and build fast, accessible web experiences that turn ideas into
             products people enjoy using. Take a look around — the tour starts on the
@@ -165,17 +165,6 @@ export default function Home() {
         >
           <Logo size={220} />
         </div>
-      </div>
-
-      {/* Mission card — the "card" component class from index.css, plus an
-          accent-colored left border added via utilities. */}
-      <div className="card border-l-4 border-l-accent">
-        <h2>Mission Statement</h2>
-        <p>
-          To craft honest, useful software — clean code paired with clear thinking —
-          and to leave every project, teammate, and codebase a little better than I
-          found it.
-        </p>
       </div>
         </>
       )}

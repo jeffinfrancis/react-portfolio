@@ -11,17 +11,20 @@ type SkillsListProps = {
 };
 
 export const DEFAULT_SKILLS: readonly string[] = [
-  'Product thinking — framing the user problem before the solution',
-  'Clear written communication — RFCs, design docs, PR descriptions',
-  'Code review as teaching, not gatekeeping',
-  'Debugging by isolating variables, not by guessing',
+  
+  'Front-end development — React, TypeScript, Tailwind CSS',
+  'Back-end development — Node.js, Express, PostgreSQL, MongoDB',
+  'DevOps — Docker, GitHub Actions, CI/CD pipelines',
+  'Accessibility — WCAG, ARIA, screen readers, keyboard navigation',
   'Working across time zones with async-first habits',
   'Mentoring junior engineers'
 ];
 
 export const COOL_SKILLS: readonly string[] = [
-  'Music production — Ableton Live, Logic Pro, FL Studio',
-  'Swimming — freestyle, backstroke, butterfly, breaststroke'
+  '3D modeling — Blender, Cinema 4D, Substance Painter',
+  'Game development — Unity, Unreal Engine, Godot',
+  'Generative AI — prompt engineering, fine-tuning, diffusion models',
+  'Web3 — Solidity, smart contracts, NFTs, DAOs'
 ];
 
 // Destructuring the props object in the parameter list is the idiomatic

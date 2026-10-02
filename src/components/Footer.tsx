@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // Footer.tsx — the site-wide footer.
-// Author: Bill Chen
+// Author: Jeffin Francis
 //
 // Simplest form of a React component: no state, no props. Just a function
 // that returns JSX. If it stays this simple, you never need to reach for a
@@ -20,7 +20,7 @@ export default function Footer() {
       <div className="max-w-content mx-auto px-5 py-4 flex flex-wrap justify-between gap-4 text-muted text-sm">
         {/* Anything wrapped in `{ }` inside JSX is a JavaScript expression.
             Here we interpolate the `currentYear` variable into the text. */}
-        <span>© {currentYear} Bill Chen. All rights reserved.</span>
+        <span>© {currentYear} Jeffin Francis. All rights reserved.</span>
         <span>Built with React + Vite + Tailwind.</span>
       </div>
     </footer>

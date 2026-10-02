@@ -1,106 +1,161 @@
 /* -----------------------------------------------------------------------------
-   index.css — the single global stylesheet for the site.
-   Author: Bill Chen
-
-   With Tailwind v4, this file does three jobs:
-     1. Pull in Tailwind itself via `@import "tailwindcss"` — that one line
-        provides the reset, the utility engine, and every base utility.
-     2. Register the site's design tokens in a `@theme` block. Each token
-        auto-generates matching utilities:
-          --color-surface  → bg-surface, text-surface, border-surface, ...
-          --radius-lg      → rounded-lg
-          --shadow-md      → shadow-md
-          --font-sans      → font-sans
-          --container-content → max-w-content
-     3. Define a handful of reusable component classes (`.btn`, `.card`, …)
-        using Tailwind's `@apply`, so the JSX doesn't have to repeat the
-        same eight utility classes on every button.
-
-   Old CSS custom properties like `var(--color-accent)` are gone — Tailwind
-   emits an equivalent utility class instead. When a per-component CSS file
-   used to say `background: var(--color-surface)`, the JSX now writes
-   `className="bg-surface"`.
+   Modern Portfolio — Tailwind CSS v4
+   Clean dark theme with subtle gradients, glass cards, and modern interactions
    ----------------------------------------------------------------------------- */
 
 @import "tailwindcss";
 
-/* Design tokens. Every `--color-*` / `--radius-*` / `--shadow-*` / `--font-*`
-   / `--container-*` declared here becomes a Tailwind utility automatically.
-   That's the whole "theme" — no separate tailwind.config.ts required. */
+/* ============================================================================
+   DESIGN TOKENS
+   ============================================================================ */
+
 @theme {
-  --color-bg: #0f1226;
-  --color-surface: #171a35;
-  --color-surface-2: #1f2447;
-  --color-text: #e9ecff;
-  --color-muted: #a6accf;
-  --color-accent: #6ee7b7;
-  --color-accent-strong: #22d3aa;
+  /* Colors */
+  --color-bg: #08090d;
+  --color-surface: #11131a;
+  --color-surface-2: #181b25;
+  --color-surface-3: #202431;
+
+  --color-text: #f5f7ff;
+  --color-muted: #9ba3b7;
+
+  --color-accent: #8b5cf6;
+  --color-accent-strong: #6366f1;
+  --color-accent-light: #a78bfa;
+
   --color-danger: #f87171;
-  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border: rgba(255, 255, 255, 0.09);
 
-  /* Radii — override Tailwind's built-in scale for the ones we use. */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
 
-  /* One shared shadow. Utility class: `shadow-md`. */
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.25);
+  /* Shadows */
+  --shadow-md:
+    0 12px 35px rgba(0, 0, 0, 0.28);
 
-  /* System font stack — keeps type crisp across OSes with no download. */
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+  --shadow-glow:
+    0 0 35px rgba(139, 92, 246, 0.18);
 
-  /* Custom container max-width. Utility class: `max-w-content`. */
-  --container-content: 1120px;
+  /* Typography */
+  --font-sans:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  /* Container */
+  --container-content: 1180px;
 }
 
-/* Base layer — global element styling. Tailwind ships an opinionated reset;
-   this @layer base adds the site's own defaults on top so headings, links,
-   and body still look like the site instead of a bare Tailwind page. */
+
+/* ============================================================================
+   BASE
+   ============================================================================ */
+
 @layer base {
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--color-bg);
+  }
+
   html,
   body,
   #root {
-    height: 100%;
+    min-height: 100%;
   }
 
   body {
+    margin: 0;
+
     background:
-      radial-gradient(1200px 800px at 10% -10%, #22265a 0%, transparent 55%),
-      radial-gradient(1000px 700px at 110% 10%, #163a44 0%, transparent 55%),
+      radial-gradient(
+        900px 500px at 10% -10%,
+        rgba(99, 102, 241, 0.18),
+        transparent 65%
+      ),
+      radial-gradient(
+        800px 500px at 90% 5%,
+        rgba(139, 92, 246, 0.14),
+        transparent 65%
+      ),
+      radial-gradient(
+        700px 500px at 50% 100%,
+        rgba(59, 130, 246, 0.08),
+        transparent 70%
+      ),
       var(--color-bg);
+
+    background-attachment: fixed;
+
     color: var(--color-text);
+
     font-family: var(--font-sans);
-    line-height: 1.55;
+
+    line-height: 1.6;
+
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.35);
+    color: white;
   }
 
   a {
-    color: var(--color-accent);
+    color: inherit;
     text-decoration: none;
+    transition:
+      color 0.2s ease,
+      opacity 0.2s ease;
   }
 
   a:hover {
-    text-decoration: underline;
+    color: var(--color-accent-light);
   }
 
   img {
-    max-width: 100%;
     display: block;
+    max-width: 100%;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
   }
 
   h1,
   h2,
-  h3 {
-    line-height: 1.15;
+  h3,
+  h4 {
     margin: 0 0 0.6em;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
   }
 
   h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    font-weight: 800;
   }
 
   h2 {
-    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-weight: 750;
+  }
+
+  h3 {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 700;
   }
 
   p {
@@ -109,40 +164,280 @@
   }
 }
 
-/* Component layer — hand-named classes for patterns that repeat all over
-   the site. Each is just a bundle of utilities via `@apply`, so we get
-   Tailwind's design consistency without repeating the same 8-class string
-   on every button. Callers just write `className="btn"`. */
+
+/* ============================================================================
+   COMPONENTS
+   ============================================================================ */
+
 @layer components {
+
+  /* --------------------------------------------------------------------------
+     Primary button
+     -------------------------------------------------------------------------- */
+
   .btn {
-    @apply inline-block rounded-md px-5 py-3 font-semibold no-underline cursor-pointer border-0 transition;
-    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-strong));
-    color: #05221a;
+    @apply inline-flex items-center justify-center rounded-md px-6 py-3
+      font-semibold cursor-pointer border-0 transition-all duration-300;
+
+    background:
+      linear-gradient(
+        135deg,
+        var(--color-accent),
+        var(--color-accent-strong)
+      );
+
+    color: white;
+
+    box-shadow:
+      0 8px 25px rgba(99, 102, 241, 0.22);
   }
 
   .btn:hover {
-    @apply -translate-y-px shadow-md no-underline;
+    @apply -translate-y-1;
+
+    color: white;
+
+    box-shadow:
+      0 14px 35px rgba(99, 102, 241, 0.32);
   }
+
+  .btn:active {
+    @apply translate-y-0;
+  }
+
+
+  /* --------------------------------------------------------------------------
+     Secondary button
+     -------------------------------------------------------------------------- */
 
   .btn-secondary {
-    @apply text-accent border border-accent bg-transparent;
-    background: transparent;
+    @apply inline-flex items-center justify-center rounded-md px-6 py-3
+      font-semibold cursor-pointer transition-all duration-300;
+
+    color: var(--color-text);
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid var(--color-border);
+
+    backdrop-filter: blur(10px);
   }
 
-  .card {
-    @apply bg-surface border border-border rounded-lg p-5 shadow-md;
+  .btn-secondary:hover {
+    @apply -translate-y-1;
+
+    color: white;
+
+    border-color: rgba(139, 92, 246, 0.5);
+
+    background: rgba(139, 92, 246, 0.08);
+
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.2);
   }
+
+
+  /* --------------------------------------------------------------------------
+     Cards
+     -------------------------------------------------------------------------- */
+
+  .card {
+    @apply rounded-lg p-6 transition-all duration-300;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.045),
+        rgba(255, 255, 255, 0.015)
+      );
+
+    border: 1px solid var(--color-border);
+
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.18);
+
+    backdrop-filter: blur(14px);
+  }
+
+  .card:hover {
+    @apply -translate-y-1;
+
+    border-color:
+      rgba(139, 92, 246, 0.3);
+
+    box-shadow:
+      0 18px 45px rgba(0, 0, 0, 0.28),
+      0 0 30px rgba(139, 92, 246, 0.08);
+  }
+
+
+  /* --------------------------------------------------------------------------
+     Section title
+     -------------------------------------------------------------------------- */
 
   .section-title {
     @apply text-text mt-0;
+
+    letter-spacing: -0.035em;
   }
+
+
+  /* --------------------------------------------------------------------------
+     Lead paragraph
+     -------------------------------------------------------------------------- */
 
   .lead {
-    @apply text-muted text-[1.05rem] max-w-[68ch];
+    @apply text-muted text-[1.08rem] max-w-[68ch];
+
+    line-height: 1.8;
   }
 
-  /* Pill-shaped tag used in blog cards, tech-stack lists, project details. */
+
+  /* --------------------------------------------------------------------------
+     Technology / category tag
+     -------------------------------------------------------------------------- */
+
   .tag {
-    @apply inline-block px-2 py-0.5 rounded-full bg-surface-2 border border-border text-muted text-xs tracking-wide;
+    @apply inline-flex items-center px-3 py-1 rounded-full
+      text-xs font-medium tracking-wide transition-all duration-200;
+
+    color: #c4b5fd;
+
+    background:
+      rgba(139, 92, 246, 0.08);
+
+    border:
+      1px solid rgba(139, 92, 246, 0.18);
+  }
+
+  .tag:hover {
+    background:
+      rgba(139, 92, 246, 0.15);
+
+    border-color:
+      rgba(139, 92, 246, 0.35);
+
+    color: #ddd6fe;
+  }
+
+
+  /* --------------------------------------------------------------------------
+     Small accent text
+     -------------------------------------------------------------------------- */
+
+  .accent-text {
+    color: var(--color-accent-light);
+  }
+
+
+  /* --------------------------------------------------------------------------
+     Gradient heading
+     -------------------------------------------------------------------------- */
+
+  .gradient-text {
+    background:
+      linear-gradient(
+        135deg,
+        #ffffff 10%,
+        #c4b5fd 50%,
+        #818cf8 90%
+      );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+  }
+
+
+  /* --------------------------------------------------------------------------
+     Glass navigation
+     -------------------------------------------------------------------------- */
+
+  .glass-nav {
+    background:
+      rgba(8, 9, 13, 0.72);
+
+    border-bottom:
+      1px solid rgba(255, 255, 255, 0.06);
+
+    backdrop-filter:
+      blur(18px);
+
+    -webkit-backdrop-filter:
+      blur(18px);
+  }
+
+
+  /* --------------------------------------------------------------------------
+     Subtle divider
+     -------------------------------------------------------------------------- */
+
+  .divider {
+    height: 1px;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      );
+  }
+
+
+  /* --------------------------------------------------------------------------
+     Project image
+     -------------------------------------------------------------------------- */
+
+  .project-image {
+    overflow: hidden;
+
+    border-radius: var(--radius-md);
+
+    border: 1px solid var(--color-border);
+  }
+
+  .project-image img {
+    width: 100%;
+
+    transition:
+      transform 0.5s ease;
+  }
+
+  .project-image:hover img {
+    transform: scale(1.04);
+  }
+}
+
+
+/* ============================================================================
+   OPTIONAL UTILITY CLASSES
+   ============================================================================ */
+
+@layer utilities {
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glow {
+    box-shadow:
+      0 0 45px rgba(139, 92, 246, 0.18);
+  }
+
+  .subtle-grid {
+    background-image:
+      linear-gradient(
+        rgba(255, 255, 255, 0.025) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.025) 1px,
+        transparent 1px
+      );
+
+    background-size: 40px 40px;
   }
 }

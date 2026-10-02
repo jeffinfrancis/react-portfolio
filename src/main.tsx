@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // main.tsx — the app's entry point.
-// Author: Bill Chen
+// Author: Jeffin Francis
 //
 // The browser loads index.html, which contains <div id="root"></div> and a
 // <script src="/src/main.tsx"> tag. Vite compiles this TSX file into plain

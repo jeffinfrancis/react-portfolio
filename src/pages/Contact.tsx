@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // Contact.tsx — the /contact page and its form.
-// Author: Bill Chen
+// Author: Jeffin Francis
 //
 // Concepts introduced here:
 //   • Controlled inputs, one shared onChange handler that branches on
@@ -208,18 +208,18 @@ export default function Contact() {
             <div className="grid grid-cols-[90px_1fr] gap-2">
               <dt className="text-muted font-semibold">Email</dt>
               <dd className="m-0 text-text">
-                <a href="mailto:hello@billchen.dev">hello@billchen.dev</a>
+                <a href="mailto:jfran123@my.centennialcollege.ca">jfran123@my.centennialcollege.ca</a>
               </dd>
             </div>
             <div className="grid grid-cols-[90px_1fr] gap-2">
               <dt className="text-muted font-semibold">Phone</dt>
               <dd className="m-0 text-text">
-                <a href="tel:+15555550123">+1 (555) 555-0123</a>
+                <a href="tel:+15555550123">+1 (111) 111-1111</a>
               </dd>
             </div>
             <div className="grid grid-cols-[90px_1fr] gap-2">
               <dt className="text-muted font-semibold">Location</dt>
-              <dd className="m-0 text-text">Toronto, Canada — open to remote</dd>
+              <dd className="m-0 text-text">London, Canada — open to remote</dd>
             </div>
             <div className="grid grid-cols-[90px_1fr] gap-2">
               <dt className="text-muted font-semibold">Availability</dt>

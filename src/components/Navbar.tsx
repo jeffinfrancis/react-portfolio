@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // Navbar.tsx — the sticky top navigation bar.
-// Author: Bill Chen
+// Author: Jeffin Francis
 //
 // Concepts introduced here:
 //   • useState — React "hook" for storing values that change over time.
@@ -32,7 +32,7 @@ const NAV_LINKS: NavLinkItem[] = [
   { to: '/education', label: 'Education' },
   { to: '/services', label: 'Services' },
   { to: '/skills', label: 'Skills' },
-  { to: '/blog', label: 'Blog' },
+  // { to: '/blog', label: 'Blog' },
   { to: '/architecture', label: 'Architecture' },
   { to: '/contact', label: 'Contact Me' }
 ];
@@ -59,7 +59,7 @@ export default function Navbar() {
           className="flex items-center gap-2.5 text-text no-underline font-bold tracking-wide hover:no-underline"
         >
           <Logo size={38} />
-          <span className="text-[1.05rem]">Bill Chen</span>
+          <span className="text-[1.05rem]">Jeffin Francis</span>
         </Link>
 
         {/* Hamburger button, shown only on narrow screens (below md).

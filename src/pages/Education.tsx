@@ -23,28 +23,12 @@ type Qualification = {
 
 const QUALIFICATIONS: Qualification[] = [
   {
-    id: 'msc',
-    degree: 'M.Sc., Computer Science',
-    institution: 'University of Toronto',
-    startYear: 2021,
-    endYear: 2023,
-    detail: 'Specialization in human–computer interaction. GPA 3.9/4.0.'
-  },
-  {
-    id: 'bsc',
-    degree: 'B.Sc. (Hons.), Software Engineering',
-    institution: 'University of Waterloo',
-    startYear: 2016,
-    endYear: 2020,
-    detail: 'Dean\'s honour list. Capstone: real-time collaborative code editor.'
-  },
-  {
-    id: 'aws-cert',
-    degree: 'AWS Certified Developer — Associate',
-    institution: 'Amazon Web Services',
-    startYear: 2024,
-    endYear: 2024,
-    detail: 'Credential ID AWS-DVA-1234-5678.'
+    id: 'degree',
+    degree: 'Software Engineering Technician',
+    institution: 'Centennial College, Toronto, ON',
+    startYear: 2025,
+    endYear: 2027,
+    detail: 'Specialization in software development and testing.'
   }
 ];
 
