@@ -28,8 +28,6 @@ import Services from './pages/Services';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import Architecture from './pages/Architecture';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
 import NotFound from './pages/NotFound';
 
 // A React "function component" is any function whose name starts with a
@@ -65,9 +63,6 @@ export default function App() {
           {/* <Route path="/blog" element={<Blog />} /> */}
           {/* Project details */}
           <Route path="/projects/:id" element={<ProjectDetails />} />
-
-          {/* Blog articles */}
-          <Route path="/blog/:slug" element={<BlogPost />} />
 
             {/* The wildcard is the catch-all for unknown URLs. */}
             <Route path="*" element={<NotFound />} />
